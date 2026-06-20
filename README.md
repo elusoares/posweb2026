@@ -15,12 +15,12 @@ A interação com a IA ocorreu da seguinte forma:
 	atualizou o workflow para substituir os placeholders, fazer o deploy, reiniciar o serviço e executar a cada push
 
     Foi necessário incluir as seguintes secrets no repositorio:
-    HOST	IP público do EC2 (terraform output ec2_public_ip)
-    USERNAME	ubuntu
-    DB_HOST	endpoint do RDS (terraform output rds_endpoint)
-    DB_NAME	myapp
-    DB_USERNAME	myapp_user
-    DB_PASSWORD	myapp_passwd
+    HOST:	IP público do EC2 (terraform output ec2_public_ip);
+    USERNAME:	ubuntu;
+    DB_HOST:	endpoint do RDS (terraform output rds_endpoint);
+    DB_NAME:	myapp;
+    DB_USERNAME:	myapp_user;
+    DB_PASSWORD:	myapp_passwd.
 
 4. Executei o terraform pela primeira vez e deu o erro groupId is invalid
 	a IA sugeriu que o atributo security_groups = em main.tf aceita strings mas só funciona no EC2 classic
