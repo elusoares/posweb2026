@@ -14,6 +14,7 @@ apt -y install \
     python3-venv \
     pkg-config \
     default-libmysqlclient-dev \
+    mysql-client \
     nginx
 
 # ── Python virtual environment + dependências ─────────────────────────────────

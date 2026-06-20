@@ -14,6 +14,20 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
 
+      - name: Setup DB schema
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          script: |
+            which mysql || sudo apt-get install -y mysql-client
+            mysql -h ${{ secrets.DB_HOST }} \
+                  -u ${{ secrets.DB_USERNAME }} \
+                  -p${{ secrets.DB_PASSWORD }} \
+                  ${{ secrets.DB_NAME }} \
+                  -e "CREATE TABLE IF NOT EXISTS People (id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(100), age INT, cell_phone VARCHAR(15));"
+
       - name: Config BackEnd file
         run: |
           sed -i 's/_USER_/${{ secrets.DB_USERNAME }}/g' backend/myapi.py
