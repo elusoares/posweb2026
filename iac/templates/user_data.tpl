@@ -67,3 +67,5 @@ NGINX
 
 nginx -t
 systemctl restart nginx
+
+chown ubuntu:ubuntu /var/www/html
