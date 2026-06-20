@@ -9,6 +9,7 @@ on:
 jobs:
   Deploy-MyAPP:
     runs-on: ubuntu-latest
+    environment: prd
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
