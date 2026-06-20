@@ -43,3 +43,11 @@ jobs:
           source: "frontend/index.html"
           target: "/var/www/html/"
           strip_components: 1
+
+      - name: Restart BackEnd service
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          script: sudo systemctl restart myapp
